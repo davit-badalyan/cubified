@@ -16,16 +16,16 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        checkForInput();
+        CheckForInput();
     }
 
     private void FixedUpdate()
     {
-        moveForward();
-        checkForSideMovement();
+        MoveForward();
+        CheckForSideMovement();
     }
 
-    private void checkForInput()
+    private void CheckForInput()
     {
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
@@ -45,14 +45,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void moveForward()
+    private void MoveForward()
     {
         Rigidbody rb = transform.GetComponent<Rigidbody>();
         float force = forwardMovementSpeed * Time.deltaTime;
         rb.AddForce(0, 0, force);
     }
 
-    private void checkForSideMovement()
+    private void CheckForSideMovement()
     {
         Rigidbody rb = transform.GetComponent<Rigidbody>();
         float force = sideMovementSpeed * Time.deltaTime;
