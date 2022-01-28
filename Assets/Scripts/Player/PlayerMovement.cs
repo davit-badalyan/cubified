@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public int forwardMovementSpeed = 500;
-    public int sideMovementSpeed = 1500;
+    public int forwardMovementSpeed = 25;
+    public int sideMovementSpeed = 50;
     private bool rightPressed = false;
     private bool leftPressed = false;
 
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         Rigidbody rb = transform.GetComponent<Rigidbody>();
         float force = forwardMovementSpeed * Time.deltaTime;
 
-        rb.AddForce(0, 0, force);
+        rb.AddForce(0, 0, force, ForceMode.VelocityChange);
     }
 
     private void CheckForSideMovement()
@@ -61,12 +61,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (rightPressed)
         {
-            rb.AddForce(force, 0, 0);
+            rb.AddForce(force, 0, 0, ForceMode.VelocityChange);
         }
 
         if (leftPressed)
         {
-            rb.AddForce(-force, 0, 0);
+            rb.AddForce(-force, 0, 0, ForceMode.VelocityChange);
         }
     }
 }
