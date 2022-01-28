@@ -503,6 +503,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de58b07b37f87b5448ee0ee3514d668f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forwardMovementSpeed: 500
+  sideMovementSpeed: 1500
+  rightPressed: 0
+  leftPressed: 0
 --- !u!54 &1866492984
 Rigidbody:
   m_ObjectHideFlags: 0

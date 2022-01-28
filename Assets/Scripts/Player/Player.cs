@@ -4,15 +4,67 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int forwardMovementSpeed = 500;
+    public int sideMovementSpeed = 1500;
+    private bool rightPressed = false;
+    private bool leftPressed = false;
+
+    private void Start()
     {
-        
+        //
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        checkForInput();
+    }
+
+    private void FixedUpdate()
+    {
+        moveForward();
+        checkForSideMovement();
+    }
+
+    private void checkForInput()
+    {
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            rightPressed = true;
+        }
+        else
+        {
+            rightPressed = false;
+        }
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            leftPressed = true;
+        } else
+        {
+            leftPressed = false;
+        }
+    }
+
+    private void moveForward()
+    {
+        Rigidbody rb = transform.GetComponent<Rigidbody>();
+        float force = forwardMovementSpeed * Time.deltaTime;
+        rb.AddForce(0, 0, force);
+    }
+
+    private void checkForSideMovement()
+    {
+        Rigidbody rb = transform.GetComponent<Rigidbody>();
+        float force = sideMovementSpeed * Time.deltaTime;
+
+        if (rightPressed)
+        {
+            rb.AddForce(force, 0, 0);
+        }
+
+        if (leftPressed)
+        {
+            rb.AddForce(-force, 0, 0);
+        }
     }
 }
