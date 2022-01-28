@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public int forwardMovementSpeed = 500;
     public int sideMovementSpeed = 1500;
@@ -39,7 +39,8 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             leftPressed = true;
-        } else
+        }
+        else
         {
             leftPressed = false;
         }
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
     {
         Rigidbody rb = transform.GetComponent<Rigidbody>();
         float force = forwardMovementSpeed * Time.deltaTime;
+
         rb.AddForce(0, 0, force);
     }
 
