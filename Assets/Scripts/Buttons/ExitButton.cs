@@ -8,14 +8,4 @@ public class ExitButton : MonoBehaviour
     {
         Application.Quit();
     }
-
-    private void Start()
-    {
-        //
-    }
-
-    private void Update()
-    {
-        //
-    }
 }

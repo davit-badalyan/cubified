@@ -9,14 +9,4 @@ public class LevelComplete : MonoBehaviour
         GameManager gameManager = FindObjectOfType<GameManager>();
         gameManager.LoadNextLevel();
     }
-
-    private void Start()
-    {
-        //
-    }
-
-    private void Update()
-    {
-        //
-    }
 }

@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    private void Start()
-    {
-        //
-    }
-
-    private void Update()
-    {
-        //
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         switch (collision.transform.tag)

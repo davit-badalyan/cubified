@@ -32,16 +32,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    private void Start()
-    {
-        //
-    }
-
-    private void Update()
-    {
-        //
-    }
-
     private void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

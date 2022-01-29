@@ -6,16 +6,6 @@ public class FollowPlayer : MonoBehaviour
 {
     public Vector3 offset;
 
-    private void Start()
-    {
-        //
-    }
-
-    private void Update()
-    {
-        //
-    }
-
     private void FixedUpdate()
     {
         Follow();

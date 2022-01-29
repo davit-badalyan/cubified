@@ -11,11 +11,6 @@ public class PlayerMovement : MonoBehaviour
     private bool leftPressed = false;
     private bool playerFell = false;
 
-    private void Start()
-    {
-        //
-    }
-
     private void Update()
     {
         CheckForInput();
