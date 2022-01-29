@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    public Text score;
-    public Transform player;
-
     private void Start()
     {
         //
@@ -20,6 +17,9 @@ public class Score : MonoBehaviour
 
     private void UpdateScore()
     {
-        score.text = player.position.z.ToString("0");
+        Player player = FindObjectOfType<Player>();
+        Text textComponent = GetComponent<Text>();
+
+        textComponent.text = player.transform.position.z.ToString("0");
     }
 }

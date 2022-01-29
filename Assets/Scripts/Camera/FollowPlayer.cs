@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    public Transform player;
     public Vector3 offset;
 
     private void Start()
@@ -24,6 +23,7 @@ public class FollowPlayer : MonoBehaviour
 
     private void Follow()
     {
+        Player player = FindObjectOfType<Player>();
         transform.position = player.transform.position + offset;
     }
 }
