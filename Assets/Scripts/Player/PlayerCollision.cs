@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    public PlayerMovement playerMovementScript;
-
     private void Start()
     {
         //
@@ -21,6 +19,8 @@ public class PlayerCollision : MonoBehaviour
         switch (collision.collider.tag)
         {
             case "Obstacle":
+                EndGame();
+                RestartGame();
                 DisableMovementScript();
                 break;
             default:
@@ -28,8 +28,21 @@ public class PlayerCollision : MonoBehaviour
         }
     }
 
+    private void EndGame()
+    {
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        gameManager.EndGame();
+    }
+
+    private void RestartGame()
+    {
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        gameManager.RestartGame();
+    }
+
     private void DisableMovementScript()
     {
+        PlayerMovement playerMovementScript = GetComponent<PlayerMovement>();
         playerMovementScript.enabled = false;
     }
 }

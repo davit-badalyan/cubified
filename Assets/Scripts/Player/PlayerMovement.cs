@@ -6,8 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     public int forwardMovementSpeed = 25;
     public int sideMovementSpeed = 50;
+    private float fallBound = -2.0f;
     private bool rightPressed = false;
     private bool leftPressed = false;
+    private bool playerFell = false;
 
     private void Start()
     {
@@ -22,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MoveForward();
+        CheckForPlayerFall();
         CheckForSideMovement();
     }
 
@@ -52,6 +55,18 @@ public class PlayerMovement : MonoBehaviour
         float force = forwardMovementSpeed * Time.deltaTime;
 
         rb.AddForce(0, 0, force, ForceMode.VelocityChange);
+    }
+
+    private void CheckForPlayerFall()
+    {
+        if (transform.position.y < fallBound && !playerFell)
+        {
+            GameManager gameManager = FindObjectOfType<GameManager>();
+
+            playerFell = true;
+            gameManager.EndGame();
+            gameManager.RestartGame();
+        }
     }
 
     private void CheckForSideMovement()
