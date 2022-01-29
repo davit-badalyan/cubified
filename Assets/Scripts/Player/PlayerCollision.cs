@@ -16,7 +16,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        switch (collision.collider.tag)
+        switch (collision.transform.tag)
         {
             case "Obstacle":
                 EndGame();

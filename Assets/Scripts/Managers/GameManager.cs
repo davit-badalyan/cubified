@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public LevelComplete levelCompleteUI;
     private bool gameHasEnded;
     private float restartDelay = 2.0f; 
 
@@ -19,6 +20,16 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         Invoke("Restart", restartDelay);
+    }
+
+    public void CompleteLevel()
+    {
+        levelCompleteUI.gameObject.SetActive(true);
+    }
+
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void Start()
