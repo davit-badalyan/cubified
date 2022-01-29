@@ -34,6 +34,6 @@ public class GameManager : MonoBehaviour
 
     private void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
